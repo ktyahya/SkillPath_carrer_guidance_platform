@@ -32,8 +32,6 @@ SkillPath serves three key user groups:
 
 ---
 
-## 🖼️ Preview
-
 ## 🖼️ Sample Screenshots
 
 ### 🎓 Student Login Page – 1
