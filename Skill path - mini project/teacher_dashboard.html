@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Path - Teacher Dashboard</title>
+    <link rel="stylesheet" href="/teacher_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><i class="fas fa-lightbulb"></i></span>
+            <h1>Skill Path</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">Class Reports</a>
+            <a href="#">Resources</a>
+            <a href="#">Guidance Tools</a>
+        </div>
+        <div class="profile">
+            <div class="dropdown">
+                <button class="profile-btn">
+                    <img src="/teacher_profile.jpeg" alt="Profile Picture" class="profile-pic">
+                    <span>Mr. Robert Chen</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h2>Welcome back, Mr. Chen!</h2>
+                <p>Your Class 8B students are making good progress on their skill development journey.</p>
+            </div>
+            <div class="notifications">
+                <div class="notification-badge">5</div>
+                <i class="fas fa-bell"></i>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card class-overview">
+                <div class="card-header">
+                    <h3><i class="fas fa-users"></i> Class Overview</h3>
+                    <div class="header-actions">
+                        <select id="class-selector">
+                            <option value="8B">Class 8B</option>
+                            <option value="7A">Class 7A</option>
+                            <option value="6C">Class 6C</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="class-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">28</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">92%</div>
+                        <div class="stat-label">Assessment Completion</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">76%</div>
+                        <div class="stat-label">Average Progress</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Need Attention</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card class-performance">
+                <div class="card-header">
+                    <h3><i class="fas fa-chart-line"></i> Class Performance</h3>
+                    <button class="see-all-btn">See Details</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="classPerformanceChart"></canvas>
+                </div>
+                <div class="performance-summary">
+                    <div class="summary-item">
+                        <h4>Top Strengths</h4>
+                        <ul>
+                            <li>Creative Thinking (82%)</li>
+                            <li>Digital Literacy (78%)</li>
+                            <li>Communication (75%)</li>
+                        </ul>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Areas for Improvement</h4>
+                        <ul>
+                            <li>Critical Analysis (58%)</li>
+                            <li>Time Management (62%)</li>
+                            <li>Problem Solving (65%)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card student-alerts">
+                <div class="card-header">
+                    <h3><i class="fas fa-exclamation-circle"></i> Students Needing Attention</h3>
+                    <button class="see-all-btn">View All</button>
+                </div>
+                <div class="alerts-container">
+                    <div class="alert-item high">
+                        <div class="student-info">
+                            <img src="/student1.jpeg" alt="Student" class="student-pic">
+                            <div class="student-details">
+                                <h4>Maya Patel</h4>
+                                <p>Significant drop in problem-solving scores</p>
+                            </div>
+                        </div>
+                        <div class="action-btns">
+                            <button class="btn small-btn"><i class="fas fa-comments"></i></button>
+                            <button class="btn small-btn"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="alert-item medium">
+                        <div class="student-info">
+                            <img src="/student2.jpeg" alt="Student" class="student-pic">
+                            <div class="student-details">
+                                <h4>Jamal Washington</h4>
+                                <p>Missing last 2 assessments</p>
+                            </div>
+                        </div>
+                        <div class="action-btns">
+                            <button class="btn small-btn"><i class="fas fa-comments"></i></button>
+                            <button class="btn small-btn"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="alert-item medium">
+                        <div class="student-info">
+                            <img src="/student3.jpeg" alt="Student" class="student-pic">
+                            <div class="student-details">
+                                <h4>Luis Garcia</h4>
+                                <p>Struggling with teamwork activities</p>
+                            </div>
+                        </div>
+                        <div class="action-btns">
+                            <button class="btn small-btn"><i class="fas fa-comments"></i></button>
+                            <button class="btn small-btn"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card recent-assessments">
+                <div class="card-header">
+                    <h3><i class="fas fa-tasks"></i> Recent Assessments</h3>
+                    <button class="primary-btn"><i class="fas fa-plus"></i> New Assessment</button>
+                </div>
+                <div class="assessments-list">
+                    <div class="assessment-item">
+                        <div class="assessment-info">
+                            <h4>Career Interests Survey</h4>
+                            <div class="assessment-meta">
+                                <span><i class="fas fa-calendar"></i> May 12, 2025</span>
+                                <span><i class="fas fa-check-circle"></i> 26/28 Completed</span>
+                            </div>
+                        </div>
+                        <div class="assessment-actions">
+                            <button class="btn secondary-btn">View Results</button>
+                        </div>
+                    </div>
+                    <div class="assessment-item">
+                        <div class="assessment-info">
+                            <h4>Critical Thinking Skills</h4>
+                            <div class="assessment-meta">
+                                <span><i class="fas fa-calendar"></i> May 3, 2025</span>
+                                <span><i class="fas fa-check-circle"></i> 28/28 Completed</span>
+                            </div>
+                        </div>
+                        <div class="assessment-actions">
+                            <button class="btn secondary-btn">View Results</button>
+                        </div>
+                    </div>
+                    <div class="assessment-item">
+                        <div class="assessment-info">
+                            <h4>Learning Style Assessment</h4>
+                            <div class="assessment-meta">
+                                <span><i class="fas fa-calendar"></i> April 25, 2025</span>
+                                <span><i class="fas fa-check-circle"></i> 27/28 Completed</span>
+                            </div>
+                        </div>
+                        <div class="assessment-actions">
+                            <button class="btn secondary-btn">View Results</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card career-insights">
+                <div class="card-header">
+                    <h3><i class="fas fa-briefcase"></i> Career Interest Insights</h3>
+                </div>
+                <div class="career-chart-container">
+                    <canvas id="careerInterestsChart"></canvas>
+                </div>
+                <div class="career-trends">
+                    <p>Top trending career interests in Class 8B:</p>
+                    <div class="trend-tags">
+                        <span class="trend-tag">Technology (32%)</span>
+                        <span class="trend-tag">Science (24%)</span>
+                        <span class="trend-tag">Arts (18%)</span>
+                        <span class="trend-tag">Business (15%)</span>
+                        <span class="trend-tag">Healthcare (11%)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card guidance-resources">
+                <div class="card-header">
+                    <h3><i class="fas fa-compass"></i> Guidance Resources</h3>
+                    <button class="see-all-btn">Browse All</button>
+                </div>
+                <div class="resources-container">
+                    <div class="resource-item">
+                        <div class="resource-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="resource-info">
+                            <h4>Career Discussion Templates</h4>
+                            <p>Structured templates to guide one-on-one career discussions with students</p>
+                        </div>
+                        <button class="btn icon-btn"><i class="fas fa-download"></i></button>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-icon"><i class="fas fa-video"></i></div>
+                        <div class="resource-info">
+                            <h4>Industry Explorer Videos</h4>
+                            <p>Short videos showcasing different industries and professions</p>
+                        </div>
+                        <button class="btn icon-btn"><i class="fas fa-play"></i></button>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-icon"><i class="fas fa-book"></i></div>
+                        <div class="resource-info">
+                            <h4>Skill Development Activities</h4>
+                            <p>Classroom activities designed to develop key career skills</p>
+                        </div>
+                        <button class="btn icon-btn"><i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="report-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Generate Student Report</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="report-form">
+                    <div class="form-group">
+                        <label for="student-select">Select Student</label>
+                        <select id="student-select">
+                            <option value="">-- Select Student --</option>
+                            <option value="student1">Uwais Abdul Salam</option>
+                            <option value="student2">Maya Patel</option>
+                            <option value="student3">Jamal Washington</option>
+                            <option value="student4">Luis Garcia</option>
+                            <option value="student5">Emily Chen</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Report Contents</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="include-assessment" checked>
+                                <label for="include-assessment">Assessment Results</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="include-strengths" checked>
+                                <label for="include-strengths">Strengths & Weaknesses</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="include-career" checked>
+                                <label for="include-career">Career Recommendations</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="include-activities">
+                                <label for="include-activities">Recommended Activities</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="include-progress">
+                                <label for="include-progress">Progress Timeline</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-notes">Additional Notes</label>
+                        <textarea id="report-notes" placeholder="Add any specific notes or comments to include in the report"></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn secondary-btn cancel-btn">Cancel</button>
+                        <button type="submit" class="btn primary-btn">Generate Report</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>Skill Path</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Skill Path. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // DOM Elements
+        const reportModal = document.getElementById('report-modal');
+        const classSelector = document.getElementById('class-selector');
+        
+        // Initialize Charts when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initClassPerformanceChart();
+            initCareerInterestsChart();
+            
+            // Add event listeners
+            setupModalListeners();
+            setupClassSelector();
+        });
+        
+        // Class Performance Chart
+        function initClassPerformanceChart() {
+            const ctx = document.getElementById('classPerformanceChart').getContext('2d');
+            
+            const classPerformanceChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Problem Solving',
+                        'Critical Thinking',
+                        'Creative Thinking',
+                        'Communication',
+                        'Teamwork',
+                        'Digital Literacy',
+                        'Research Skills',
+                        'Time Management'
+                    ],
+                    datasets: [{
+                        label: 'Class Average',
+                        data: [65, 58, 82, 75, 68, 78, 70, 62],
+                        backgroundColor: 'rgba(74, 111, 220, 0.2)',
+                        borderColor: 'rgba(74, 111, 220, 1)',
+                        pointBackgroundColor: 'rgba(74, 111, 220, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(74, 111, 220, 1)'
+                    }, {
+                        label: 'School Average',
+                        data: [70, 65, 75, 72, 73, 75, 68, 67],
+                        backgroundColor: 'rgba(92, 159, 36, 0.2)',
+                        borderColor: 'rgba(92, 159, 36, 1)',
+                        pointBackgroundColor: 'rgba(92, 159, 36, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(92, 159, 36, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Career Interests Chart
+        function initCareerInterestsChart() {
+            const ctx = document.getElementById('careerInterestsChart').getContext('2d');
+            
+            const careerInterestsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Technology', 'Science', 'Arts', 'Business', 'Healthcare', 'Education', 'Engineering', 'Trade Skills'],
+                    datasets: [{
+                        label: 'Class 8B Career Interests',
+                        data: [32, 24, 18, 15, 11, 9, 8, 6],
+                        backgroundColor: [
+                            'rgba(74, 111, 220, 0.8)',
+                            'rgba(92, 159, 36, 0.8)',
+                            'rgba(243, 156, 18, 0.8)',
+                            'rgba(231, 76, 60, 0.8)',
+                            'rgba(52, 152, 219, 0.8)',
+                            'rgba(155, 89, 182, 0.8)',
+                            'rgba(41, 128, 185, 0.8)',
+                            'rgba(230, 126, 34, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(74, 111, 220, 1)',
+                            'rgba(92, 159, 36, 1)',
+                            'rgba(243, 156, 18, 1)',
+                            'rgba(231, 76, 60, 1)',
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(155, 89, 182, 1)',
+                            'rgba(41, 128, 185, 1)',
+                            'rgba(230, 126, 34, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Percentage of Students'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Modal Functions
+        function setupModalListeners() {
+            // Generate Report button
+            document.querySelectorAll('.see-all-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.closest('.card').classList.contains('student-alerts')) {
+                        // For demonstration purposes - normally would go to a new page
+                        alert('Viewing all students needing attention');
+                    } else if (this.closest('.card').classList.contains('class-performance')) {
+                        // For demonstration purposes - normally would go to a new page
+                        alert('Viewing detailed class performance');
+                    }
+                });
+            });
+            
+            // "View Results" buttons
+            document.querySelectorAll('.assessment-actions .secondary-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const assessmentName = this.closest('.assessment-item')
+                                              .querySelector('h4').textContent;
+                    // For demonstration purposes - normally would go to a new page
+                    alert(`Viewing results for: ${assessmentName}`);
+                });
+            });
+            
+            // New Assessment button
+            document.querySelector('.recent-assessments .primary-btn').addEventListener('click', function() {
+                // For demonstration purposes - normally would open a modal or go to a new page
+                alert('Creating new assessment');
+            });
+            
+            // Close modal when clicking on X
+            document.querySelectorAll('.close-modal').forEach(closeBtn => {
+                closeBtn.addEventListener('click', function() {
+                    this.closest('.modal').style.display = 'none';
+                });
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal')) {
+                    e.target.style.display = 'none';
+                }
+            });
+            
+            // Add event listener for report form submission
+            const reportForm = document.getElementById('report-form');
+            if (reportForm) {
+                reportForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const studentName = document.getElementById('student-select').options[
+                        document.getElementById('student-select').selectedIndex
+                    ].text;
+                    
+                    // Demo alert - would generate and download report in real app
+                    alert(`Generating report for ${studentName}`);
+                    reportModal.style.display = 'none';
+                });
+            }
+            
+            // Cancel button for report form
+            const cancelBtn = document.querySelector('#report-form .cancel-btn');
+            if (cancelBtn) {
+                cancelBtn.addEventListener('click', function() {
+                    reportModal.style.display = 'none';
+                });
+            }
+        }
+        
+        // Class Selector Function
+        function setupClassSelector() {
+            classSelector.addEventListener('change', function() {
+                // In a real app, this would fetch data for the selected class
+                // For demo purposes, we'll just show an alert
+                alert(`Loading data for ${this.value}`);
+            });
+        }
+        
+        // Handle student action buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.small-btn')) {
+                const button = e.target.closest('.small-btn');
+                const studentName = button.closest('.alert-item')
+                                         .querySelector('.student-details h4').textContent;
+                
+                if (button.innerHTML.includes('fa-comments')) {
+                    // Contact student button
+                    alert(`Opening messaging with ${studentName}`);
+                } else if (button.innerHTML.includes('fa-user-plus')) {
+                    // Schedule meeting button
+                    alert(`Schedule meeting with ${studentName}`);
+                }
+            }
+        });
+        
+        // Resource item buttons
+        document.querySelectorAll('.resource-item .icon-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const resourceName = this.closest('.resource-item')
+                                       .querySelector('h4').textContent;
+                                       
+                if (this.innerHTML.includes('fa-download')) {
+                    // Download resource
+                    alert(`Downloading ${resourceName}`);
+                } else if (this.innerHTML.includes('fa-play')) {
+                    // Play video
+                    alert(`Playing ${resourceName}`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
