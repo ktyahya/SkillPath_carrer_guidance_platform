@@ -53,8 +53,8 @@ SkillPath serves three key user groups:
 ## 🚀 Tech Stack
 
 - Frontend: `React.js / HTML / CSS`
-- Backend: `Node.js / Express`
-- Database: `MongoDB`
+- Backend: `php`
+- Database: `MySql`
 - Deployment: `GitHub`
 
 ---
